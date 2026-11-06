@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #28211e;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    background-color: #fdf8ee;
+    color: #28211e;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+
+  /* Pixel Art crisp rendering */
+  .pixelated {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Custom Neo-Brutalism & Scrapbook Utilities */
+@layer components {
+  .btn-neo {
+    @apply border-2 border-ink font-bold transition-all duration-150 active:translate-x-0.5 active:translate-y-0.5;
+    box-shadow: 3px 3px 0px #28211e;
+  }
+  
+  .btn-neo:hover {
+    box-shadow: 4px 4px 0px #28211e;
+    transform: translate(-1px, -1px);
+  }
+
+  .btn-neo:active {
+    box-shadow: 1px 1px 0px #28211e;
+    transform: translate(2px, 2px);
+  }
+
+  .card-scrapbook {
+    @apply bg-white border-2 border-ink rounded-lg relative;
+    box-shadow: 4px 4px 0px #28211e;
+  }
+
+  /* Washi tape visual effect */
+  .washi-tape-top {
+    position: relative;
+  }
+  .washi-tape-top::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1.5deg);
+    width: 70px;
+    height: 18px;
+    background: rgba(254, 224, 102, 0.75);
+    border: 1px dashed rgba(40, 33, 30, 0.35);
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .washi-tape-corner {
+    position: relative;
+  }
+  .washi-tape-corner::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    transform: rotate(28deg);
+    width: 55px;
+    height: 16px;
+    background: rgba(244, 166, 178, 0.75);
+    border: 1px dashed rgba(40, 33, 30, 0.35);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Retro CRT scanlines overlay */
+  .crt-scanlines {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.04),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.04)
+    );
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+  }
+
+  /* Notebook grid background */
+  .paper-grid {
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(40, 33, 30, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(40, 33, 30, 0.06) 1px, transparent 1px);
+  }
+
+  .paper-dots {
+    background-image: radial-gradient(rgba(40, 33, 30, 0.15) 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf8ee;
+  border-left: 2px solid #28211e;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffe066;
+  border: 2px solid #28211e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f4a6b2;
+}
